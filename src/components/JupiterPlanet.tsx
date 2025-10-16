@@ -4,15 +4,21 @@ import { useTheme } from '../contexts/ThemeContext';
 
 const SaturnPlanet: React.FC = () => {
   const { isDark } = useTheme();
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const planetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Skip on mobile for performance
-      if (window.innerWidth < 768) return;
+      if (isMobile) return;
       
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
@@ -32,9 +38,11 @@ const SaturnPlanet: React.FC = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  if (isMobile) return null;
+
   return (
     <div className={`fixed top-1/2 right-10 transform -translate-y-1/2 z-0 pointer-events-none ${
-      isDark ? 'opacity-40 lg:opacity-60' : 'opacity-60 lg:opacity-80'
+      isDark ? 'opacity-50 lg:opacity-60' : 'opacity-70 lg:opacity-80'
     }`}>
       <motion.div
         ref={planetRef}

@@ -38,7 +38,8 @@ const SpaceBackground: React.FC = () => {
     if (!ctx) return;
 
     const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const isMobile = window.innerWidth < 768;
+      const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
       const width = window.innerWidth;
       const height = window.innerHeight;
       canvas.width = Math.floor(width * dpr);
@@ -50,16 +51,15 @@ const SpaceBackground: React.FC = () => {
 
     const createStars = () => {
       starsRef.current = [];
-      // Further reduced for mobile performance
-      const starCount = window.innerWidth < 768 ? 42 : 100; // ~30% fewer on mobile
+      const starCount = window.innerWidth < 768 ? 30 : 80;
       for (let i = 0; i < starCount; i++) {
         starsRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           z: Math.random() * 1000,
           size: Math.random() * 2 + 0.5,
-          speed: Math.random() * 0.5 + 0.15,
-          opacity: Math.random() * 0.6 + 0.25,
+          speed: Math.random() * 0.4 + 0.1,
+          opacity: Math.random() * 0.5 + 0.2,
           twinkle: Math.random() * Math.PI * 2
         });
       }
@@ -67,7 +67,7 @@ const SpaceBackground: React.FC = () => {
 
     const createAsteroids = () => {
       asteroidsRef.current = [];
-      const asteroidCount = window.innerWidth < 768 ? 1 : 4; // reduce on mobile
+      const asteroidCount = window.innerWidth < 768 ? 0 : 3;
       for (let i = 0; i < asteroidCount; i++) {
         const size = Math.random() * 5 + 1.5;
         const points: { x: number; y: number }[] = [];

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://integer-io-services.com/sitemap.xml

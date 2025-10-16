@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, FileText, ExternalLink } from 'lucide-react';
 import InteractiveCard from '../components/InteractiveCard';
-import ProjectCard from '../components/ProjectCard'; // Import the new component
+import ModernProjectCarousel from '../components/ModernProjectCarousel'; // Import the new component
 import { useTheme } from '../contexts/ThemeContext';
 import ACImage from '../gal/ac.jpeg';
 import sasImage from '../gal/sas.jpeg';
@@ -216,7 +216,6 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Featured Projects Stack */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -227,7 +226,7 @@ const Projects = () => {
             Featured Portfolio
           </h2>
 
-          <ProjectCard projects={portfolioProjects} />
+          <ModernProjectCarousel projects={portfolioProjects} />
         </motion.div>
 
         {/* Rest of your existing code for PDF categories... */}

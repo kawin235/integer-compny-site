@@ -23,42 +23,8 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 
-import ACImage from './gal/ac.jpeg';
-import sasImage from './gal/sas.jpeg';
-import SpicesImage from './gal/spices.png';
-import logo from './components/logo.png';
-
 function App() {
   const [isLoadingComplete, setIsLoadingComplete] = useState(false);
-  const [imagesPreloaded, setImagesPreloaded] = useState(false);
-
-  useEffect(() => {
-    const imagesToPreload = [ACImage, sasImage, SpicesImage, logo];
-    let loadedCount = 0;
-
-    imagesToPreload.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === imagesToPreload.length) {
-          setImagesPreloaded(true);
-        }
-      };
-      img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === imagesToPreload.length) {
-          setImagesPreloaded(true);
-        }
-      };
-    });
-
-    const timeout = setTimeout(() => {
-      setImagesPreloaded(true);
-    }, 5000);
-
-    return () => clearTimeout(timeout);
-  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoadingComplete(true);
