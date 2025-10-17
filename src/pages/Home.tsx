@@ -198,7 +198,160 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-      {/* Stats Section */}
+
+      {/* Products Section */}
+      <section className="py-20 px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-emerald-400 to-purple-400 bg-clip-text text-transparent"
+          >
+            Our Premium Products
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className={`text-center text-lg mb-16 max-w-3xl mx-auto ${
+              isDark ? 'text-gray-300' : 'text-gray-700'
+            }`}
+          >
+            Discover our flagship digital solutions designed to transform your business operations and drive growth
+          </motion.p>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <InteractiveCard glowColor="emerald" className="h-full">
+                <div className="relative overflow-hidden rounded-2xl mb-6">
+                  <img
+                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="AI Business Analytics Dashboard"
+                    loading="lazy"
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <span className="px-4 py-2 bg-emerald-500 text-white text-sm font-bold rounded-full">
+                      NEW
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3
+                    className={`text-2xl font-bold mb-3 ${
+                      isDark ? 'text-white' : 'text-gray-800'
+                    }`}
+                  >
+                    AI Business Analytics Dashboard
+                  </h3>
+                  <p
+                    className={`text-base leading-relaxed mb-4 ${
+                      isDark ? 'text-gray-300' : 'text-gray-600'
+                    }`}
+                  >
+                    Transform your business data into actionable insights with our cutting-edge AI-powered analytics platform. Features real-time data visualization, predictive analytics, automated reporting, and intelligent recommendations to optimize your business decisions.
+                  </p>
+                  <ul className={`space-y-2 mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full" />
+                      Real-time data processing and visualization
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full" />
+                      Predictive analytics with ML algorithms
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full" />
+                      Customizable dashboards and reports
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full" />
+                      API integration with existing systems
+                    </li>
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
+                  >
+                    Learn More
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </div>
+              </InteractiveCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <InteractiveCard glowColor="purple" className="h-full">
+                <div className="relative overflow-hidden rounded-2xl mb-6">
+                  <img
+                    src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Smart Automation Suite"
+                    loading="lazy"
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <span className="px-4 py-2 bg-purple-500 text-white text-sm font-bold rounded-full">
+                      POPULAR
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3
+                    className={`text-2xl font-bold mb-3 ${
+                      isDark ? 'text-white' : 'text-gray-800'
+                    }`}
+                  >
+                    Smart Automation Suite
+                  </h3>
+                  <p
+                    className={`text-base leading-relaxed mb-4 ${
+                      isDark ? 'text-gray-300' : 'text-gray-600'
+                    }`}
+                  >
+                    Streamline your business operations with our comprehensive automation solution. Automate repetitive tasks, optimize workflows, integrate multiple platforms, and boost productivity with intelligent process automation powered by AI and machine learning.
+                  </p>
+                  <ul className={`space-y-2 mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                      Workflow automation and optimization
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                      Multi-platform integration capabilities
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                      AI-powered task scheduling and management
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                      24/7 automated monitoring and alerts
+                    </li>
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
+                  >
+                    Learn More
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </div>
+              </InteractiveCard>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
       <section className="py-20 px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <motion.h2
