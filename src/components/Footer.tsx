@@ -9,6 +9,7 @@ import {
   Instagram,
   Linkedin,
   ArrowRight,
+  X,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
@@ -162,7 +163,7 @@ const Footer: React.FC = () => {
                         : 'text-gray-700 hover:text-emerald-600'
                     }`}
                   >
-                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <X className={`h-3 w-3 mr-2 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />
                     {link.name}
                   </Link>
                 </li>
@@ -181,13 +182,13 @@ const Footer: React.FC = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className={`text-sm font-medium transition-all hover:translate-x-2 transform duration-200 flex items-center group ${
+                    className={`text-sm font-medium transition-all hover:translate-x-1 transform duration-200 flex items-center group ${
                       isDark
                         ? 'text-gray-300 hover:text-emerald-400'
                         : 'text-gray-700 hover:text-emerald-600'
                     }`}
                   >
-                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <X className={`h-3 w-3 mr-2 ${isDark ? 'text-purple-400' : 'text-purple-600'}`} />
                     {link.name}
                   </Link>
                 </li>
